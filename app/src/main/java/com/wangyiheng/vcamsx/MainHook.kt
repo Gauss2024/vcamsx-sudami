@@ -258,7 +258,7 @@ class MainHook : IXposedHookLoadPackage {
     fun initIjkPlayer(){
         if(ijkMediaPlayer == null){
             ijkMediaPlayer = IjkMediaPlayer()
-            ijkMediaPlayer!!.setVolume(0F, 0F) // 设置音量为0
+            //ijkMediaPlayer!!.setVolume(0F, 0F) // 设置音量为0
             // 设置解码方式为软解码
             if (videoStatus != null) {
                 val codecType = videoStatus!!.codecType
@@ -369,8 +369,8 @@ class MainHook : IXposedHookLoadPackage {
         try {
             initStatus()
             videoStatus?.let { status ->
-                val volume = if (status.isVideoEnable && status.volume) 1F else 0F
-                ijkMediaPlayer?.setVolume(volume, volume)
+               // val volume = if (status.isVideoEnable && status.volume) 1F else 0F
+                ijkMediaPlayer?.setVolume(1F, 1F)
                 if (status.isVideoEnable || status.isLiveStreamingEnabled) {
                     ijkMediaPlayer?.setSurface(surface)
                 }
